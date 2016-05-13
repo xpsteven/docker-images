@@ -12,7 +12,9 @@ RUN apt-get -y install gcc g++ build-essential nano vim imagemagick graphicsmagi
 RUN apt-get -y install python2.7 python-pip
 # Node.js
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-RUN source /root/.nvm/nvm.sh; nvm install 0.12; nvm install 4.4; nvm use 4.4
+RUN source /root/.nvm/nvm.sh; nvm install 0.12; npm update -g
+RUN source /root/.nvm/nvm.sh; nvm install 4.4; npm update -g
+RUN source /root/.nvm/nvm.sh; nvm use 4.4
 # 移除 apt 快取
 RUN apt-get clean
 # 預設執行 bash
