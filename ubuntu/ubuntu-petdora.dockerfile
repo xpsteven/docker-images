@@ -5,3 +5,5 @@ MAINTAINER xp@fandora.co
 # for excel-parser
 RUN pip install xlrd
 RUN pip install argparse
+
+RUN echo "nvm use 6.10" >> ~/.bashrc
