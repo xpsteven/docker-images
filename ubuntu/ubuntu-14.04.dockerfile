@@ -4,8 +4,15 @@ MAINTAINER xp@fandora.co
 # 強制使用 bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# 語系
+RUN locale-gen en_US.UTF-8
+RUN locale-gen zh_TW.UTF-8
+ENV LANG zh_TW.UTF-8
+
 # 切換 apt source
 RUN sed -i "s/archive.ubuntu.com/free.nchc.org.tw/" /etc/apt/sources.list
+RUN sed -i "s/deb-src/#deb-src/" /etc/apt/sources.list
+RUN echo "deb http://free.nchc.org.tw/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y upgrade; apt-get clean
 
