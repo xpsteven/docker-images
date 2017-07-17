@@ -6,4 +6,7 @@ MAINTAINER xp@fandora.co
 RUN pip install xlrd
 RUN pip install argparse
 
-RUN echo "nvm use 6.10" >> ~/.bashrc
+# 超商取貨貼紙 barcode
+RUN apt-get -y install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential; apt-get clean
+
+RUN echo "nvm use 6" >> ~/.bashrc

@@ -30,8 +30,7 @@ RUN apt-get -y install python2.7 python-pip; apt-get clean
 # Node.js
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 RUN source /root/.nvm/nvm.sh; nvm install 0.12; npm update -g
-RUN source /root/.nvm/nvm.sh; nvm install 4.8; npm update -g
-RUN source /root/.nvm/nvm.sh; nvm install 6.10; npm update -g
+RUN source /root/.nvm/nvm.sh; nvm install 6; npm update -g
 
 # 預設執行 bash
 CMD /bin/bash
