@@ -32,12 +32,12 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh
 RUN source /root/.nvm/nvm.sh; nvm install 0.12; npm update -g
 RUN source /root/.nvm/nvm.sh; nvm install 6; npm update -g
 
-# 安裝 python 相依
-# for excel-parser
+# npm install excel-parser
 RUN pip install xlrd
 RUN pip install argparse
 
-# 超商取貨貼紙 barcode
+# 超商取貨貼紙
+# npm install canvas
 RUN apt-get -y install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential; apt-get clean
 
 # 預設執行 bash
