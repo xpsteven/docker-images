@@ -27,8 +27,8 @@ RUN apt-get -y install gcc g++ build-essential nano vim imagemagick graphicsmagi
 
 # Node.js
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-RUN source /root/.nvm/nvm.sh; nvm install 0.12
-RUN source /root/.nvm/nvm.sh; nvm install 6.11
+RUN source /root/.nvm/nvm.sh; nvm install 0.12.18
+RUN source /root/.nvm/nvm.sh; nvm install 6.11.1
 
 # Python 環境
 RUN apt-get -y install python2.7 python-pip; apt-get clean
