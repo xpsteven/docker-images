@@ -1,9 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER xp@fandora.co
 
-# 強制使用 bash
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 # 語系
 RUN locale-gen en_US.UTF-8
 RUN locale-gen zh_TW.UTF-8
@@ -21,16 +18,20 @@ RUN apt-get install tzdata
 RUN echo "Asia/Taipei" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
 
+# 強制使用 bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # 安裝常用套件
+# RUN apt-get -y install curl; apt-get clean
 RUN apt-get -y install gcc g++ build-essential nano vim imagemagick graphicsmagick zip curl; apt-get clean
+
+# Node.js
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+RUN source /root/.nvm/nvm.sh; nvm install 0.12
+RUN source /root/.nvm/nvm.sh; nvm install 6.11
 
 # Python 環境
 RUN apt-get -y install python2.7 python-pip; apt-get clean
-
-# Node.js
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-RUN source /root/.nvm/nvm.sh; nvm install 0.12; npm update -g
-RUN source /root/.nvm/nvm.sh; nvm install 6.11; npm update -g
 
 # npm install excel-parser
 RUN pip install xlrd
